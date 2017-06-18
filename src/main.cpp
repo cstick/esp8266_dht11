@@ -4,13 +4,14 @@
 #include <aREST.h>
 #include <DHT.h>
 
+#include "secrets.h"
 #include "heartbeat.h"
 
 #define DHTPIN 5 // GPIO5 == D1 on the ESP board.
 #define DHTTYPE DHT11 // DHT11 is the model sensor I'm using
 
-const char* ssid     = "---";
-const char* password = "---";
+const char* ssid     = SSID;
+const char* password = PASSWORD;
 float humidity, temp_f;  // Values read from sensor
 
 DHT dht(DHTPIN, DHTTYPE);
