@@ -24,8 +24,11 @@ IPAddress ipBroadCast(255, 255, 255, 255);
 unsigned int heartbeatPort = 3196;
 Heartbeat _heartbeat(ipBroadCast, heartbeatPort);
 
+// https://github.com/arduino-libraries/NTPClient
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
+
+byte mac[6];
 
 long int startTime = 0;
 long int currentTime = 0;
@@ -67,6 +70,8 @@ void initWifi()
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+
+  WiFi.macAddress(mac);
 }
 
 const int ReadAmbianceSeconds = 2;
@@ -150,7 +155,7 @@ void doHeartbeat()
 
   // Set next heartbeat time.
   heartbeatSendTime = currentTime + HeartbeatSendSeconds;
-  _heartbeat.Send();
+  _heartbeat.Send(mac, currentTime, humidity, temp_f);
 }
 
 void loop()

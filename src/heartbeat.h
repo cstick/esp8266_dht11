@@ -12,7 +12,7 @@ class Heartbeat
 
   public:
     Heartbeat(IPAddress address, unsigned int port);
-    void Send();
+    void Send(byte mac[6], long int time, float humidity, float temp);
 };
 
 #endif
