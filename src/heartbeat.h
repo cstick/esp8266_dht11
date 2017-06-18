@@ -4,14 +4,15 @@
 #ifndef HEARTBEAT_H
 #define HEARTBEAT_H
 
-class Heartbeat{
+class Heartbeat
+{
     WiFiUDP _udp;
     IPAddress _address;
     unsigned int _port;
 
-    public:
-        Heartbeat(IPAddress address, unsigned int port);
-        void Send();
+  public:
+    Heartbeat(IPAddress address, unsigned int port);
+    void Send();
 };
 
 #endif
