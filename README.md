@@ -8,3 +8,4 @@ In the src directory, create a header file "secrets.h" and add the folling lines
 #define SSID "YOUR_WIFI_SSID"
 #define PASSWORD "YOUR_WIFI_PASSWORD"
 ````
+t
